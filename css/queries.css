@@ -1,0 +1,57 @@
+/* 1400px */
+@media (max-width: 88em) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .wilayas__list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(20, auto);
+  }
+}
+
+/* Below 1100px */
+@media (max-width: 69em) {
+  .sidebar {
+    padding: 1.5rem 3rem;
+  }
+
+  .wilayas__list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(30, auto);
+  }
+}
+
+/* Below 900px */
+@media (max-width: 57em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+/* Below 675px */
+@media (max-width: 43em) {
+  body {
+    display: block;
+    height: 100%;
+    padding: 1.2rem;
+  }
+
+  .sidebar > .copyright {
+    display: none;
+  }
+
+  .copyright-mobile {
+    display: block;
+    padding: 1.2rem 0;
+    background-color: var(--color-dark--1);
+    font-size: 1.4rem;
+    color: var(--color-light--1);
+    text-align: center;
+  }
+
+  .wilayas__list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(20, auto);
+  }
+}

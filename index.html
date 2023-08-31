@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Fitmap helps you map your workouts for better progress"
+    />
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+        rel="stylesheet"
+        type="text/css"
+      />
+    </noscript>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+
+    <!-- <script
+      defer
+      src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"
+    ></script> -->
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/queries.css" />
+    <script defer src="script.js"></script>
+
+    <!-- <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBP6QmuxSS53w_AIIyya2bAQld9A17bYmw"
+      defer
+    ></script> -->
+
+    <title>Algerian ProvinQuest &dash; Map Quiz Game</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-icon">
+        <img src="logo.png" alt="Logo" class="logo" />
+      </div>
+      <div class="start">
+        <button class="button__start">Start</button>
+      </div>
+      <div class="province__input hidden">
+        <label class="province__label">Entrez le nom de la wilaya ici :</label>
+        <div class="province__input__group">
+          <div>
+            <span id="timer">5:00</span>
+          </div>
+          <input class="province__input--wilaya" />
+        </div>
+        <span class="province__score">0 / 58 trouvées</span>
+      </div>
+
+      <div class="wilayas__list hidden">
+        <!-- <div class="wilaya">
+          <span class="province__code">1.</span>
+          
+        </div> -->
+      </div>
+
+      <p class="copyright">&copy; Copyright by Yakine</p>
+    </div>
+
+    <div id="map"></div>
+    <div class="copyright-mobile">
+      <p>&copy; Copyright by Yakine</p>
+    </div>
+    <div id="locationModal" class="modal">
+      <div class="modal__content">
+        <p class="score__label"></p>
+        <button class="modal__button__replay">Rejouer</button>
+        <button class="modal__button__close">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="#25ab25"
+                stroke-width="1.5"
+              ></circle>
+              <path
+                d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5"
+                stroke="#25ab25"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              ></path>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="loading-spinner" class="loading-spinner">
+      <div class="spinner"></div>
+    </div>
+  </body>
+</html>

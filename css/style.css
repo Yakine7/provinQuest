@@ -1,0 +1,343 @@
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #01aac1;
+  --color-dark--1: #00253f;
+  --color-dark--2: #42484d;
+  --color-light--1: #bababa;
+  --color-light--2: #ececec;
+  --color-light--3: rgb(214, 222, 224);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+  height: 100%;
+  overscroll-behavior-y: none;
+
+  background-color: #fff;
+  padding: 2.4rem;
+
+  display: flex;
+}
+
+/* GENERAL */
+a:link,
+a:visited {
+  color: var(--color-brand--1);
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: relative;
+  flex: 2;
+  background-color: var(--color-dark--1);
+  padding: 3rem 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-icon {
+  text-align: center;
+}
+
+.logo {
+  height: 7rem;
+  margin-bottom: 2rem;
+}
+.province__input__group {
+  gap: 2rem;
+  align-items: center;
+  width: 75%;
+  display: flex;
+}
+
+.province__input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.province__input--expanded {
+  z-index: 999999999999;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  position: fixed;
+  right: 1.4rem;
+  left: 1.4rem;
+  /* margin: 0 3rem; */
+  background: #00253f;
+  border-radius: 10px;
+}
+
+.province__input--wilaya::placeholder {
+  text-align: center;
+}
+
+.province__label {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.province__input--wilaya {
+  margin-right: 7.5rem;
+  height: 5rem;
+  width: 100%;
+  min-width: 9.6rem;
+  padding: 0.3rem 1.1rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--color-light--3);
+  transition: all 0.2s;
+}
+
+.province__input--wilaya:focus {
+  box-shadow: 0 0 0.2rem 0.3rem rgba(255, 238, 227, 0.5) !important;
+}
+/* .province__input__btn:focus {
+  box-shadow: 0 0 0.2rem 0.3rem rgba(255, 238, 227, 0.5) !important;
+} */
+input.province__input--wilaya:focus-visible {
+  outline: none;
+}
+
+.province__score {
+  font-size: 1.2rem;
+}
+
+.wilayas__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(15, auto);
+  grid-auto-flow: column;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.wilaya {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  height: 2.4rem;
+}
+
+.province__code {
+  font-size: 1.2rem;
+  flex-basis: 2rem;
+}
+
+.province__name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  flex-shrink: 2;
+}
+
+.start {
+  position: absolute;
+  text-align: center;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.button__start {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  width: 20rem;
+  padding: 1.4rem 2.8rem;
+  border-radius: 10px;
+  background-color: #25ab25;
+  border: none;
+  box-shadow: 0 2.4rem 4.8rem rgba(255, 255, 255, 0.075);
+  cursor: pointer;
+  margin-top: 3rem;
+}
+
+.copyright {
+  margin-top: auto;
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--color-light--1);
+}
+
+/* MAP */
+#map {
+  flex: 3;
+  /* height: 100%; */
+  height: 85rem;
+  background-color: var(--color-light--2);
+}
+
+/* Popup width is defined in JS using options */
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-dark--1);
+  color: var(--color-light--2);
+  border-radius: 5px;
+  padding-right: 0.6rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  font-size: 1.5rem;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: var(--color-dark--1);
+}
+
+.running-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--2);
+}
+.cycling-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--1);
+}
+
+.leaflet-grab {
+  cursor: crosshair;
+}
+
+.copyright-mobile {
+  display: none;
+}
+
+.modal {
+  overflow: -moz-hidden-unscrollable;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+  background-color: #fefefe;
+  /* margin: 15% auto; 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 35rem;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  position: relative;
+}
+
+/* Additional styles */
+.modal p {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.modal__content p:last-child {
+  margin-bottom: 0;
+}
+
+.modal__button__replay {
+  color: #fff;
+  border: 0;
+  padding: 1.4rem 2.8rem;
+  background-color: #25ab25;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.modal__button__close {
+  position: absolute;
+  border: none;
+  background: none;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.modal__button__close svg {
+  height: 3rem;
+}
+
+#timer {
+  display: block;
+  width: 5rem;
+  font-size: 1.5rem;
+}
+
+.isFound {
+  color: #76ff76;
+}
+
+.isNotFound {
+  color: #ef2929;
+}
+
+.hidden {
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+}
+
+.d-none {
+  display: none;
+}
+
+.loading-spinner {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
