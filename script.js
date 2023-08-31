@@ -485,7 +485,7 @@ class App {
     wilaysList.classList.toggle('hidden');
     provinceInput.classList.toggle('hidden');
     startBtn.disabled = true;
-    startBtn.classList.toggle('d-none');
+    startBtn.parentElement.classList.add('d-none');
   }
 
   _showLoadingSpinner() {
